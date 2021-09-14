@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- vim: set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab : -->
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>docker_2nd</artifactId>
+    <packaging>ep-application</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>docker_2nd</name>
+    <description>My Application</description>
+
+    <!-- common definitions for this version of Streaming -->
+    <parent>
+        <groupId>com.tibco.ep.sb.parent</groupId>
+        <artifactId>ep-application-docker</artifactId>
+        <version>10.6.1</version>
+        <relativePath>C:\Users\bhawa\.m2\com.tibco.ep.sb.rt</relativePath>
+    </parent>
+
+    <properties>
+        <dockerDomain>example.com</dockerDomain>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.tibco.ep</groupId>
+                <artifactId>ep-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <skipTests>${skipLocalTests}</skipTests>
+                    <nodes>
+                        <node>A</node>
+                        <node>B</node>
+                        <node>C</node>
+                     </nodes>
+                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>start nodes</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <startParallel>true</startParallel>
+                            <skip>${skipDockerTests}</skip>
+                            <autoCreateCustomNetworks>true</autoCreateCustomNetworks>
+                            <images>
+                                <image>
+                                    <name>%a:%v</name>
+                                    <alias>A.${project.artifactId}</alias>
+                                    <run>
+                                        <network>
+                                            <name>${dockerDomain}</name>
+                                            <alias>A.${dockerDomain}</alias>
+                                        </network>
+                                        <hostname>A.${dockerDomain}</hostname>
+                                        <env>
+                                            <STREAMING_NODENAME>A.${project.artifactId}</STREAMING_NODENAME>
+                                        </env>
+                                        <log>
+                                            <enabled>true</enabled>
+                                        </log>
+                                        <wait>
+                                            <log>COMMAND FINISHED</log>
+                                            <time>100000</time>
+                                        </wait>
+                                        <namingStrategy>alias</namingStrategy>
+                                    </run>
+                                </image>
+                                <image>
+                                    <name>%a:%v</name>
+                                    <alias>B.${project.artifactId}</alias>
+                                    <run>
+                                        <network>
+                                            <name>${dockerDomain}</name>
+                                            <alias>B.${dockerDomain}</alias>
+                                        </network>
+                                        <hostname>B.${dockerDomain}</hostname>
+                                        <env>
+                                            <STREAMING_NODENAME>B.${project.artifactId}</STREAMING_NODENAME>
+                                        </env>
+                                        <log>
+                                            <enabled>true</enabled>
+                                        </log>
+                                        <wait>
+                                            <log>COMMAND FINISHED</log>
+                                            <time>100000</time>
+                                        </wait>
+                                        <namingStrategy>alias</namingStrategy>
+                                    </run>
+                                </image>
+                                <image>
+                                    <name>%a:%v</name>
+                                    <alias>C.${project.artifactId}</alias>
+                                    <run>
+                                        <network>
+                                            <name>${dockerDomain}</name>
+                                            <alias>C.${dockerDomain}</alias>
+                                        </network>
+                                        <hostname>C.${dockerDomain}</hostname>
+                                        <env>
+                                            <STREAMING_NODENAME>C.${project.artifactId}</STREAMING_NODENAME>
+                                        </env>
+                                        <log>
+                                            <enabled>true</enabled>
+                                        </log>
+                                        <wait>
+                                            <log>COMMAND FINISHED</log>
+                                            <time>100000</time>
+                                        </wait>
+                                        <namingStrategy>alias</namingStrategy>
+                                    </run>
+                                </image>
+                            </images>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop nodes</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skipDockerTests}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+    	<dependency>
+    		<groupId>com.tibco.sb.sample</groupId>
+    		<artifactId>firstapp</artifactId>
+    		<version>10.6.1</version>
+    		<type>ep-eventflow-fragment</type>
+    	</dependency>
+    </dependencies>
+</project>
