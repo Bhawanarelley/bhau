@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>
+      First Application Sample
+    </title>
+    <link rel="stylesheet" type="text/css" href="''">
+    <meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+    <style type="text/css">
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    sb-readme.css : Styles for StreamBase Help READMEs
+    ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
+    body {
+    background: #fff;
+    text-align: left;
+    font-family: "Trebuchet MS", Verdana, Arial, Helvetica, Tahoma, sans-serif;
+    font-size: 11pt;
+    padding: 10px;  
+    margin: 0;
+    }
+
+    h1 {
+    color: black;
+    padding: 2px 0;
+    border-top: none;
+    font-size: 150%;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 0 0.75em 0px;
+    }
+
+    h2 {
+    color: black;
+    margin: 1em 0 0.75em 0;
+    padding: 2px 0;
+    font-size: 130%;
+    font-weight: bold;
+    border-top: 0.5px solid gray; 
+    }
+
+    h3 {
+    color: black;
+    margin: 1em 0 0.75em 0;
+    padding: 2px 0;
+    font-size: 120%;
+    font-style: italic;
+    font-weight: bold;
+    width: 50%;
+    border-top: 1px dashed;
+    }
+
+    h3.subtitle {
+    color: black;
+    text-align: center;
+    border: none;
+    margin: -1.25em 0 1em 0;
+    padding: none;
+    font-size: 120%;
+    font-weight: bold;
+    font-style: normal;
+    width: 100%;
+    }
+
+    h4 {
+    color: black;
+    margin: 1em 0 0.75em 0;
+    padding: 2px 0;
+    border-top: none;
+    font-size: 110%;
+    font-weight: bold;
+    }
+
+    h5 {
+    color: black;
+    margin: 1em 0 0.5em 0;
+    padding: 2px 0;
+    font-size: 100%;
+    font-style: italic;
+    }
+
+    h6 {
+    color: black;
+    margin: 1em 0 0.5em 0;
+    padding: 2px 0;
+    font-size: 100%;
+    font-weight: bold;
+    }
+
+    table {
+    border-collapse: collapse;
+    border-left: 1px solid gray;
+    border-top: 1px solid gray;
+    font-family: "Trebuchet MS", Verdana, Arial, Helvetica, Tahoma, sans-serif;
+    font-size: 11pt;
+    }
+
+    table.simplelist {
+    border: none;
+    }
+
+    thead {
+    line-height: 1em;
+    }
+
+    th {
+    background: #ddeeff;
+    text-align: left;
+    padding: 6px 5px 5px;
+    vertical-align: top;
+    }
+
+    td {
+    padding: 6px 5px 5px;
+    vertical-align: top;
+    }
+
+    table p {
+    margin-bottom: 2px;
+    margin-top: 3px;
+    }
+
+    ul, ol {
+    margin-top: 1.0em;
+    margin-bottom: 1.0em;
+    margin-left: 1.5em;
+    padding: 0 0 0 20px;
+    }
+
+    li {
+    margin-top: 0;
+    margin-bottom: 0;    
+    }
+
+    ol[compact] li p, ul[compact] li p {
+    margin-top: 0;
+    margin-bottom: 0.25em;
+    }
+
+    li p {
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    }
+
+    div.variablelist {
+    margin-left: 2em;
+    }
+
+    dt {
+    font-size: 95%;
+    font-weight: bold;
+    margin-top: 8.0pt;
+    margin-bottom: 1.0pt;
+    }
+
+    dd {
+    margin-left: 1em;
+    }
+
+    div.column dt {
+    font-size: 95%;
+    font-weight: normal;
+    margin-top: 0pt;
+    margin-bottom: 1.0pt;
+    }
+
+    img {
+    border: none;
+    }
+
+    blockquote {
+    margin: 0 0 0 2em;
+    padding: 5px 0;
+    }
+
+    span {
+    margin: 0;
+    padding: 0;
+    }
+
+    a {
+    margin: 0;
+    padding: 0;
+    }
+
+    a:link, a:visited {
+    color: #003399;
+    }
+
+    a:hover {
+    color: #ff0000;
+    }
+
+    span.guilabel, 
+    span.guimenuitem, 
+    span.guibutton {
+    font-weight: bold;
+    color: #333333;
+    }
+
+    .column { 
+    padding: 2px; 
+    }
+
+    *.box {
+    border: 1px solid blue;
+    margin: 10px;
+    background: #def;
+    }
+
+    *.box *.title{
+    margin-top: 0;
+    }
+
+    *.box * {
+    margin-left: 1em;
+    }
+
+    div.back2top {
+    margin-top: 30px;
+    }
+
+    div.literallayout p {
+    font-family: "Courier New", Courier, "Lucida Console", monospace;
+    font-size: 95%;
+    }
+
+    div.note *.title,
+    div.important *.title,
+    div.caution *.title,
+    div.tip *.title,
+    div.warning *.title {
+    margin: 0em 0em -0.85em 0em;
+    font-size: 90%;
+    }
+
+    li div.note *.title, 
+    li div.important *.title, 
+    li div.caution *.title, 
+    li div.tip *.title, 
+    li div.warning *.title {
+    margin: 0em 0em -0.2em 0em;
+    font-size: 90%;
+    }
+
+    table div.note *.title,
+    table div.important *.title,
+    table div.caution *.title,
+    table div.tip *.title,
+    table div.warning *.title {
+    margin: 0em 0em -0.5em 0em;
+    font-size: 90%;
+    }
+
+    pre.programlisting {
+    border: 1.0px solid gray;
+    padding: 2px;
+    background: #EEE;
+    font-family: "Courier New", Courier, "Lucida Console", monospace;
+    font-size: 95%;
+    }
+
+    pre.programlisting em.replaceable code {
+    font-family: "Courier New", Courier, "Lucida Console", monospace;
+    font-style: italic;
+    }
+
+    pre.screen {
+    border: 1px solid gray;
+    padding: 2px;
+    background: #FBFFFF;
+    font-family: "Courier New", Courier, "Lucida Console", monospace;
+    font-size: 95%;
+    }
+
+    code.sgmltag-attribute, code.sgmltag-element, code.sgml-emptytag, code.function, 
+    code.type, code.exceptionname, code.parameter, code.varname, code.interfacename, 
+    code.oointerface, code.classname, code.ooclass, code.methodname, code.coexception,
+    code.command, code.option, code.filename, code.literal, code.uri, code.constant,
+    code.methodsynopsis, pre.classsynopsis, span.type, span.markup 
+    {
+    font-family: "Courier New", Courier, "Lucida Console", monospace;
+    font-size: 95%;
+    }
+
+    code.sgmltag-attvalue, 
+    code.filename em.replaceable, 
+    code.literal  em.replaceable, 
+    code.filename em.replaceable code,
+    code.literal  em.replaceable code {
+    font-family: "Courier New", Courier, "Lucida Console", monospace;
+    font-style: italic;
+    }
+
+    em.replaceable {
+    font-style: italic;
+    }
+
+    code.sgmltag-element:before {
+    content:'<';
+    }
+
+    code.sgmltag-element:after {
+    content:'>';
+    } 
+
+    h2 code.sgmltag-element, h3 code.sgmltag-element, h4 code.sgmltag-element {
+    font-family: inherit; 
+    }
+
+    strong.command, strong.keycap {
+    color: #333333;
+    }
+
+    strong.userinput {
+    font-family: "Courier New", Courier, "Lucida Console", monospace;
+    font-size: 90%;
+    font-weight: 500;
+    background-color: #e0e0e0;
+    }
+
+    p.nospaceabove {
+    margin-top: -1.0em;
+    }
+
+    div#header {
+    margin: 0;
+    padding-bottom: 0;
+    text-align: left;
+    font-size : 90%;
+    }
+
+    p#readmebanner {
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+    color: navy;
+    border-bottom: 1px solid #333;
+    }
+
+    div.toc dt {
+    font-weight: normal;
+    line-height: 1em;
+    margin-top: 0;
+    margin-bottom: 0.35em;
+    }
+
+    div.article>div.section, div.preface>div.section {
+    padding: 0 10px 0 10px;
+    }
+
+    div#footer {
+    padding-left: 0;
+    border-top: 1px solid #333;
+    font-size: 90%;
+    margin-top: 18pt;
+    }
+
+    div#footer p {
+    margin-top: 0;
+    }
+
+    </style>
+  </head>
+  <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+    <a name="_top"></a>
+    <div id="header">
+    </div>
+
+    <div id="subPageMasthead">
+      <p id="readmebanner">
+        StreamBase Documentation
+      </p>
+    </div>
+
+    <div class="article">
+      <div class="titlepage">
+        <div>
+          <div>
+            <h1 class="title">
+              <a name="Firstapp" id="Firstapp"></a>First Application Sample
+            </h1>
+          </div>
+        </div>
+      </div>
+      <a class="ix" name="firstapp sample"></a>
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both">
+                <a name="Firstapp_about" id="Firstapp_about"></a>About This Sample
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          This sample, <code class="filename">firstapp.sbapp</code>, demonstrates a StreamBase
+          application with one notable characteristic: it is easy to create. You may have already
+          created it yourself, if you performed the tutorial in the <span>Getting Started
+          Guide</span>.
+        </p>
+
+        <p>
+          The application is modest in functionality, but building it teaches you some important
+          fundamentals including:
+        </p>
+
+        <div class="itemizedlist">
+          <ul class="itemizedlist" type="disc">
+            <li class="listitem">
+              <p>
+                The general design process of defining input streams, schemas, operators, and
+                output streams
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                Adding and connecting components in an EventFlow
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                Typechecking operators to ensure that streaming data can flow through the
+                application without errors
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                Features of the SB Authoring and SB Test/Debug perspectives
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                Running the application in StreamBase Studio
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                Creating a feed simulator to enqueue test data automatically to the running
+                application
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <p>
+          This topic describes how to run <code class="filename"><code class=
+          "filename"><code class="filename">firstapp.sbapp</code></code></code>. For detailed
+          information about this and other samples, please see the <em class="citetitle">Samples
+          Guide</em> in the StreamBase Studio Help.
+        </p>
+      </div>
+
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both">
+                <a name="Firstapp_how-to-run" id="Firstapp_how-to-run"></a>Running This Sample in
+                StreamBase Studio
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          To start this sample:
+        </p>
+
+        <div class="orderedlist">
+          <ol class="orderedlist" type="1">
+            <li class="listitem">
+              <p>
+                In the Project Explorer view, open the sample you just loaded.
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                Open the <code class="filename">src/main/eventflow/<em class=
+                "replaceable"><code>packageName</code></em></code> folder.
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                Open the <code class="filename">firstapp.sbapp</code> file and click the
+                <span class="guilabel">Run</span> button. This opens the SB Test/Debug perspective
+                and starts the module.
+              </p>
+            </li>
+
+            <li class="listitem">
+              <p>
+                When done, press <span class="keycap"><strong>F9</strong></span> or click the
+                <span class="guilabel">Terminate EventFlow Fragment</span> button.
+              </p>
+            </li>
+          </ol>
+        </div>
+
+        <p>
+          The server is ready to receive input. See the following sections to manually enqueue data
+          into this sample. For additional enqueuing instructions, see the <em class=
+          "citetitle">Getting Started Guide</em>.
+        </p>
+
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title">
+                  <a name="d0e1700" id="d0e1700"></a>Enqueuing Data Manually
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            To enqueue data manually in Studio:
+          </p>
+
+          <div class="orderedlist">
+            <ol class="orderedlist" type="1">
+              <li class="listitem">
+                <p>
+                  Open the Manual Input view.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  In the Output Streams view, make sure that the <span class="guilabel">Output
+                  stream</span> option is set to <code class="option">All streams</code>.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Enter <code class="literal">IBM</code> in the symbol field, and <code class=
+                  "literal">10000</code> in the quantity field.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Click <span class="guibutton">Send Data</span> to send this tuple to the
+                  application.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Observe the output in the Output Streams view:
+                </p>
+
+                <p>
+                  Because the quantity satisfies the Filter predicate, your tuple is passed through
+                  on the BigTrades stream.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Enter <code class="literal">100</code> in the quantity field and click
+                  <span class="guibutton">Send Data</span> again.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Observe that this time, your output appears in the AllTheRest output stream.
+                </p>
+
+                <p>
+                  Why? Because the quantity is below the predicate's threshold of 10000.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Enter different values above and below the threshold, and see how your
+                  application responds. Try entering an invalid quantity such as <code class=
+                  "literal">alpha</code>.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="titlepage">
+            <div>
+              <div>
+                <h3 class="title">
+                  <a name="Firstapp_usingfs_studio" id="Firstapp_usingfs_studio"></a>Enqueuing Data
+                  Using a Feed Simulation
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            To enqueue test data using any of the three feed simulations:
+          </p>
+
+          <div class="orderedlist">
+            <ol class="orderedlist" type="1">
+              <li class="listitem">
+                <p>
+                  Open the Feed Simulations view.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  In the Feed Simulations view, select a feed simulation.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Click <span class="guibutton">Run</span>.
+                </p>
+
+                <p>
+                  The Input Streams view displays generated tuples enqueued from your Feed
+                  Simulation. At the same time, the Output Streams view begins displaying tuples on
+                  the two output streams.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  If you chose <code class="filename">firstapp-enum.sbfs</code>, let it run for
+                  five or ten seconds, then click <span class="guibutton">Stop</span> (otherwise it
+                  runs continuously). The other two feed simulators run to completion, but feel
+                  free to stop them when you have enough data.
+                </p>
+
+                <p>
+                  Note that stopping the feed simulation does not stop the application.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  Observe the results in the Input Streams and Output Streams views. (If necessary,
+                  resize the views so that you can see their contents clearly.)
+                </p>
+
+                <div class="tip" style="margin-left: 0.5in; margin-right: 0.5in;">
+                  <h3 class="title">
+                    Tip
+                  </h3>
+
+                  <p>
+                    Click a row to display its field summary below the list, as shown in the next
+                    figure.
+                  </p>
+                </div>
+
+                <p>
+                  You should see trades values that are both above and below the threshold of 10000
+                  that was set in your Filter operator.
+                </p>
+              </li>
+
+              <li class="listitem">
+                <p>
+                  When done, press <span class="keycap"><strong>F9</strong></span> or click the
+                  <span class="guilabel">Terminate EventFlow Fragment</span> button.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both">
+                <a name="Firstapp_sample-files" id="Firstapp_sample-files"></a>This Sample's Files
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          In addition to the application, the installed First Sample includes two additional feed
+          simulations. Thus, there are three simulations in total, each demonstrating a different
+          way of modeling test data:
+        </p>
+
+        <div class="variablelist">
+          <dl>
+            <dt>
+              <span class="term">firstapp-enum.sbfs</span>
+            </dt>
+
+            <dd>
+              <p>
+                Also featured in the tutorial, generates values from a list of symbols and
+                quantities, in random order. The enumeration also specifies the weights of the
+                quantities.
+              </p>
+            </dd>
+
+            <dt>
+              <span class="term">firstapp-trace1.sbfs</span>
+            </dt>
+
+            <dd>
+              <p>
+                Uses an external comma-separated value data file, <code class=
+                "filename">firstapp-trace1.csv</code>, to explicitly list the order and values of
+                tuples.
+              </p>
+            </dd>
+
+            <dt>
+              <span class="term">firstapp-trace2.sbfs</span>
+            </dt>
+
+            <dd>
+              <p>
+                Uses values specified in another external comma-separated value data file,
+                <code class="filename">firstapp-trace2.csv</code>, and also uses relative
+                timestamps to control the rate of enqueuing.
+              </p>
+            </dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="titlepage">
+          <div>
+            <div>
+              <h2 class="title" style="clear: both">
+                <a name="Firstapp_location" id="Firstapp_location"></a>Sample Location
+              </h2>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          When you load the sample into StreamBase Studio, Studio copies the sample project's files
+          to your Studio workspace, which is normally part of your home directory, with full access
+          rights.
+        </p>
+
+        <div class="important" style="margin-left: 0.5in; margin-right: 0.5in;">
+          <h3 class="title">
+            Important
+          </h3>
+
+          <p>
+            Load this sample in StreamBase Studio, and thereafter use the Studio workspace copy of
+            the sample to run and test it, even when running from the command prompt.
+          </p>
+        </div>
+
+        <p>
+          Using the workspace copy of the sample avoids permission problems. The default workspace
+          location for this sample is:
+        </p>
+
+        <pre class="programlisting">
+<em class="replaceable"><code>studio-workspace</code></em>/sample_firstapp
+</pre>
+        <p>
+          See <span>Default Installation Directories in the <em class="citetitle">Installation
+          Guide</em></span> for the default location of <em class=
+          "replaceable"><code>studio-workspace</code></em> on your system.
+        </p>
+      </div>
+    </div>
+
+    <div id="footer">
+      <p>
+        Copyright © 2004-2020 TIBCO Software Inc. All rights reserved.
+      </p>
+    </div>
+  </body>
+</html>

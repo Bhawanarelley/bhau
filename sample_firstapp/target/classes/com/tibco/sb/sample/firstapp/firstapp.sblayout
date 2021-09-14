@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><application-layout>
+    <component name="TradesIn">
+        <param name="gui:x" value="32"/>
+        <param name="gui:y" value="61"/>
+    </component>
+    <component name="TradeFilter">
+        <param name="gui:x" value="108"/>
+        <param name="gui:y" value="61"/>
+    </component>
+    <component name="AllTheRest">
+        <param name="gui:x" value="215"/>
+        <param name="gui:y" value="111"/>
+        <param name="gui:bends:1" value="188,101;198,141"/>
+    </component>
+    <component name="BigTrades">
+        <param name="gui:x" value="215"/>
+        <param name="gui:y" value="12"/>
+        <param name="gui:bends:1" value="178,81;184,42"/>
+    </component>
+</application-layout>

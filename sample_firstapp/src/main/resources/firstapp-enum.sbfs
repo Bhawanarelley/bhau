@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbfs:Simulation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sbfs="http://www.streambase.com/schemas/feedsim/02/SBFS">
+  <SimStreams Name="TradesIn">
+    <ProcessingOptions DataRatePerSecond="5.0" DataGenerationMethod="Custom"/>
+    <Schema>
+      <Fields Name="symbol" DataTypeName="string" FieldLength="10" Description="Stock symbol">
+        <Distribution GenerationMethod="Enumerated" EnumeratedDistMethod="SpecifiedValues">
+          <EnumeratedDist weight="1.0" value="NKE"/>
+          <EnumeratedDist weight="2.0" value="CMG"/>
+          <EnumeratedDist weight="1.0" value="GMCR"/>
+          <EnumeratedDist weight="2.5" value="FSLR"/>
+        </Distribution>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="quantity" DataTypeName="int" FieldLength="4" Description="Number of shares">
+        <Distribution GenerationMethod="Enumerated" EnumeratedDistMethod="SpecifiedValues">
+          <EnumeratedDist weight="0.1" value="30000"/>
+          <EnumeratedDist weight="0.1" value="10000"/>
+          <EnumeratedDist weight="0.2" value="100"/>
+          <EnumeratedDist weight="0.2" value="200"/>
+          <EnumeratedDist weight="0.2" value="400"/>
+          <EnumeratedDist weight="0.2" value="1000"/>
+        </Distribution>
+        <DataSourceMapping/>
+      </Fields>
+    </Schema>
+  </SimStreams>
+</sbfs:Simulation>

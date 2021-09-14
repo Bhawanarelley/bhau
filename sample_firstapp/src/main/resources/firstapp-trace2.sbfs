@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbfs:Simulation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:sbfs="http://www.streambase.com/schemas/feedsim/02/SBFS">
+  <SimStreams Name="TradesIn">
+    <ProcessingOptions DataRatePerSecond="1.0" TimeStampColumn="3" DataGenerationMethod="DataFile">
+      <DataSource Name="firstapp-trace2.csv" DataSourceURI="firstapp-trace2.csv"/>
+    </ProcessingOptions>
+    <Schema>
+      <Fields Name="symbol" DataTypeName="string" FieldLength="10" Description="">
+        <Distribution/>
+        <DataSourceMapping/>
+      </Fields>
+      <Fields Name="quantity" DataTypeName="int" FieldLength="4" Description="">
+        <Distribution/>
+        <DataSourceMapping DestFieldNum="2"/>
+      </Fields>
+    </Schema>
+  </SimStreams>
+</sbfs:Simulation>

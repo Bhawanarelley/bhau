@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modify version="10.4.0">
+    <add>
+        <type-metadata>
+            <param name="type" value="module"/>
+            <param name="fully-qualified-name" value="com.tibco.sb.sample.firstapp.firstapp"/>
+        </type-metadata>
+        <memory-model-settings/>
+        <dynamic-variables/>
+        <stream name="TradesIn">
+            <schema>
+                <field description="Stock symbol" name="symbol" type="string"/>
+                <field description="Number of shares" name="quantity" type="int"/>
+            </schema>
+        </stream>
+        <box name="TradeFilter" type="filter">
+            <input port="1" stream="TradesIn"/>
+            <output port="1" stream="BigTrades"/>
+            <output port="2" stream="AllTheRest"/>
+            <param name="autogen-nomatch-port" value="true"/>
+            <param name="expression.0" value="quantity &gt;= 10000"/>
+            <param name="expression.1" value="true"/>
+        </box>
+        <output-stream name="AllTheRest"/>
+        <output-stream name="BigTrades"/>
+    </add>
+</modify>
